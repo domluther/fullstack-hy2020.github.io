@@ -574,6 +574,20 @@ app.listen(PORT, () => {
 
 It's important that <i>dotenv</i> gets imported before the <i>note</i> model is imported. This ensures that the environment variables from the <i>.env</i> file are available globally before the code from the other modules is imported.
 
+#### Dotenv alternative
+
+With [Node 20.6](https://netbasal.com/node-js-v20-6-0-introducing-built-in-env-file-support-fb1b1de4f1fa) you no longer need to use the dotenv library. The .env file can be passed in as an argument by starting your application with the command:
+
+```bash
+node --env-file=.env index.js 
+```
+
+This could be combined with the `--watch` flag like this.
+```bash
+node --watch --env-file=.env index.js 
+```
+
+
 ### Important note to Fly.io users
 
 Because GitHub is not used with Fly.io, the file .env also gets to the Fly.io servers when the app is deployed. Because of this, the env variables defined in the file will be available there.
